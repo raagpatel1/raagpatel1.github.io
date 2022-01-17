@@ -41,10 +41,8 @@ library(usmap)
 
 ## Read in the .csv's
 
-Beer = 
-  read.csv(file.choose(),header = TRUE)
-Brewery = 
-  read.csv(file.choose(),header = TRUE)
+Beer = read_csv("Beers.csv")
+Brewery = read_csv("Breweries.csv")
 
 ## Of course you'll need to change the above part to match your system
 

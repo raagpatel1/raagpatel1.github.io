@@ -2,7 +2,7 @@ name: "My-Website"
 navbar:
     title: "My-Website"
     left:
-        text: "About"
-        href index.html
-        text: "Project1"
-        href Project1.html
+      - text: "About"
+        href: index.html
+      - text: "Project1"
+        href: Project1.html
