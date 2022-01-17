@@ -267,54 +267,20 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
-## v tibble  3.1.6     v dplyr   1.0.7
-## v tidyr   1.1.4     v stringr 1.4.0
-## v readr   2.1.1     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(dplyr)
+<pre class="r"><code>library(tidyverse)
+library(dplyr)
 library(readr)
 library(ggplot2)
-library(plotly)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre class="r"><code>library(GGally)</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
-##   method from   
-##   +.gg   ggplot2</code></pre>
-<pre class="r"><code>library(cowplot)
-library(ggpubr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;ggpubr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
-## 
-##     get_legend</code></pre>
-<pre class="r"><code>library(devtools)</code></pre>
-<pre><code>## Loading required package: usethis</code></pre>
-<pre class="r"><code>library(ggcorrplot)
+library(plotly)
+library(GGally)
+library(cowplot)
+library(ggpubr)
+library(devtools)
+library(ggcorrplot)
 library(ggfittext)
 library(class)
-library(caret)</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre><code>## 
-## Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     lift</code></pre>
-<pre class="r"><code>library(e1071)
+library(caret)
+library(e1071)
 library(usmap)
 
 
@@ -333,7 +299,7 @@ library(usmap)
 
 Beer = read_csv(&quot;Beers.csv&quot;)</code></pre>
 <pre><code>## Rows: 2410 Columns: 7</code></pre>
-<pre><code>## -- Column specification --------------------------------------------------------
+<pre><code>## -- Column specification -------------------------------------------------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## chr (2): Name, Style
 ## dbl (5): Beer_ID, ABV, IBU, Brewery_id, Ounces</code></pre>
@@ -342,7 +308,7 @@ Beer = read_csv(&quot;Beers.csv&quot;)</code></pre>
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>Brewery = read_csv(&quot;Breweries.csv&quot;)</code></pre>
 <pre><code>## Rows: 558 Columns: 4</code></pre>
-<pre><code>## -- Column specification --------------------------------------------------------
+<pre><code>## -- Column specification -------------------------------------------------------------------------------------------------
 ## Delimiter: &quot;,&quot;
 ## chr (3): Name, City, State
 ## dbl (1): Brew_ID</code></pre>
@@ -373,24 +339,24 @@ BB_F = BB %&gt;% drop_na(IBU,ABV,Style)
 # Inspecting the top and bottom of our new dataframe
 head(BB,6)</code></pre>
 <pre><code>## # A tibble: 6 x 10
-##   Beer_Name Beer_ID   ABV   IBU Brewery_id Style Ounces Brewery_Name City  State
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-## 1 Pub Beer     1436 0.05     NA        409 Amer~     12 10 Barrel B~ Bend  OR   
-## 2 Devil&#39;s ~    2265 0.066    NA        178 Amer~     12 18th Street~ Gary  IN   
-## 3 Rise of ~    2264 0.071    NA        178 Amer~     12 18th Street~ Gary  IN   
-## 4 Sinister     2263 0.09     NA        178 Amer~     12 18th Street~ Gary  IN   
-## 5 Sex and ~    2262 0.075    NA        178 Amer~     12 18th Street~ Gary  IN   
-## 6 Black Ex~    2261 0.077    NA        178 Oatm~     12 18th Street~ Gary  IN</code></pre>
+##   Beer_Name           Beer_ID   ABV   IBU Brewery_id Style                          Ounces Brewery_Name       City  State
+##   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                           &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;
+## 1 Pub Beer               1436 0.05     NA        409 American Pale Lager                12 10 Barrel Brewing~ Bend  OR   
+## 2 Devil&#39;s Cup            2265 0.066    NA        178 American Pale Ale (APA)            12 18th Street Brewe~ Gary  IN   
+## 3 Rise of the Phoenix    2264 0.071    NA        178 American IPA                       12 18th Street Brewe~ Gary  IN   
+## 4 Sinister               2263 0.09     NA        178 American Double / Imperial IPA     12 18th Street Brewe~ Gary  IN   
+## 5 Sex and Candy          2262 0.075    NA        178 American IPA                       12 18th Street Brewe~ Gary  IN   
+## 6 Black Exodus           2261 0.077    NA        178 Oatmeal Stout                      12 18th Street Brewe~ Gary  IN</code></pre>
 <pre class="r"><code>tail(BB,6)</code></pre>
 <pre><code>## # A tibble: 6 x 10
-##   Beer_Name Beer_ID   ABV   IBU Brewery_id Style Ounces Brewery_Name City  State
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-## 1 Rocky Mo~    1035 0.075    NA        425 Amer~     12 Wynkoop Bre~ Denv~ CO   
-## 2 Belgorado     928 0.067    45        425 Belg~     12 Wynkoop Bre~ Denv~ CO   
-## 3 Rail Yar~     807 0.052    NA        425 Amer~     12 Wynkoop Bre~ Denv~ CO   
-## 4 B3K Blac~     620 0.055    NA        425 Schw~     12 Wynkoop Bre~ Denv~ CO   
-## 5 Silverba~     145 0.055    40        425 Amer~     12 Wynkoop Bre~ Denv~ CO   
-## 6 Rail Yar~      84 0.052    NA        425 Amer~     12 Wynkoop Bre~ Denv~ CO</code></pre>
+##   Beer_Name                   Beer_ID   ABV   IBU Brewery_id Style                    Ounces Brewery_Name     City  State
+##   &lt;chr&gt;                         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt;
+## 1 Rocky Mountain Oyster Stout    1035 0.075    NA        425 American Stout               12 Wynkoop Brewing~ Denv~ CO   
+## 2 Belgorado                       928 0.067    45        425 Belgian IPA                  12 Wynkoop Brewing~ Denv~ CO   
+## 3 Rail Yard Ale                   807 0.052    NA        425 American Amber / Red Ale     12 Wynkoop Brewing~ Denv~ CO   
+## 4 B3K Black Lager                 620 0.055    NA        425 Schwarzbier                  12 Wynkoop Brewing~ Denv~ CO   
+## 5 Silverback Pale Ale             145 0.055    40        425 American Pale Ale (APA)      12 Wynkoop Brewing~ Denv~ CO   
+## 6 Rail Yard Ale (2009)             84 0.052    NA        425 American Amber / Red Ale     12 Wynkoop Brewing~ Denv~ CO</code></pre>
 <pre class="r"><code>############################### PART 2 CONCLUSION ##############################
 #
 # Upon inspection of the head and tail of the merged data frame, 
@@ -484,21 +450,21 @@ BB_Both = BB %&gt;% drop_na(IBU,ABV,Style)
 
 # Check summaries of each data set to look for N/A values
 summary(Beer)</code></pre>
-<pre><code>##   Beer_Name            Beer_ID            ABV               IBU        
-##  Length:2410        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00  
-##  Class :character   1st Qu.: 808.2   1st Qu.:0.05000   1st Qu.: 21.00  
-##  Mode  :character   Median :1453.5   Median :0.05600   Median : 35.00  
-##                     Mean   :1431.1   Mean   :0.05977   Mean   : 42.71  
-##                     3rd Qu.:2075.8   3rd Qu.:0.06700   3rd Qu.: 64.00  
-##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00  
-##                                      NA&#39;s   :62        NA&#39;s   :1005    
-##    Brewery_id       Style               Ounces     
-##  Min.   :  1.0   Length:2410        Min.   : 8.40  
-##  1st Qu.: 94.0   Class :character   1st Qu.:12.00  
-##  Median :206.0   Mode  :character   Median :12.00  
-##  Mean   :232.7                      Mean   :13.59  
-##  3rd Qu.:367.0                      3rd Qu.:16.00  
-##  Max.   :558.0                      Max.   :32.00  
+<pre><code>##   Beer_Name            Beer_ID            ABV               IBU           Brewery_id       Style          
+##  Length:2410        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00   Min.   :  1.0   Length:2410       
+##  Class :character   1st Qu.: 808.2   1st Qu.:0.05000   1st Qu.: 21.00   1st Qu.: 94.0   Class :character  
+##  Mode  :character   Median :1453.5   Median :0.05600   Median : 35.00   Median :206.0   Mode  :character  
+##                     Mean   :1431.1   Mean   :0.05977   Mean   : 42.71   Mean   :232.7                     
+##                     3rd Qu.:2075.8   3rd Qu.:0.06700   3rd Qu.: 64.00   3rd Qu.:367.0                     
+##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00   Max.   :558.0                     
+##                                      NA&#39;s   :62        NA&#39;s   :1005                                       
+##      Ounces     
+##  Min.   : 8.40  
+##  1st Qu.:12.00  
+##  Median :12.00  
+##  Mean   :13.59  
+##  3rd Qu.:16.00  
+##  Max.   :32.00  
 ## </code></pre>
 <pre class="r"><code>summary(Brewery)</code></pre>
 <pre><code>##     Brew_ID      Brewery_Name           City              State          
@@ -509,76 +475,53 @@ summary(Beer)</code></pre>
 ##  3rd Qu.:418.8                                                           
 ##  Max.   :558.0</code></pre>
 <pre class="r"><code>summary(BB)</code></pre>
-<pre><code>##   Beer_Name            Beer_ID            ABV               IBU        
-##  Length:2410        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00  
-##  Class :character   1st Qu.: 808.2   1st Qu.:0.05000   1st Qu.: 21.00  
-##  Mode  :character   Median :1453.5   Median :0.05600   Median : 35.00  
-##                     Mean   :1431.1   Mean   :0.05977   Mean   : 42.71  
-##                     3rd Qu.:2075.8   3rd Qu.:0.06700   3rd Qu.: 64.00  
-##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00  
-##                                      NA&#39;s   :62        NA&#39;s   :1005    
-##    Brewery_id       Style               Ounces      Brewery_Name      
-##  Min.   :  1.0   Length:2410        Min.   : 8.40   Length:2410       
-##  1st Qu.: 94.0   Class :character   1st Qu.:12.00   Class :character  
-##  Median :206.0   Mode  :character   Median :12.00   Mode  :character  
-##  Mean   :232.7                      Mean   :13.59                     
-##  3rd Qu.:367.0                      3rd Qu.:16.00                     
-##  Max.   :558.0                      Max.   :32.00                     
-##                                                                       
-##      City              State          
-##  Length:2410        Length:2410       
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
-##                                       
+<pre><code>##   Beer_Name            Beer_ID            ABV               IBU           Brewery_id       Style          
+##  Length:2410        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00   Min.   :  1.0   Length:2410       
+##  Class :character   1st Qu.: 808.2   1st Qu.:0.05000   1st Qu.: 21.00   1st Qu.: 94.0   Class :character  
+##  Mode  :character   Median :1453.5   Median :0.05600   Median : 35.00   Median :206.0   Mode  :character  
+##                     Mean   :1431.1   Mean   :0.05977   Mean   : 42.71   Mean   :232.7                     
+##                     3rd Qu.:2075.8   3rd Qu.:0.06700   3rd Qu.: 64.00   3rd Qu.:367.0                     
+##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00   Max.   :558.0                     
+##                                      NA&#39;s   :62        NA&#39;s   :1005                                       
+##      Ounces      Brewery_Name           City              State          
+##  Min.   : 8.40   Length:2410        Length:2410        Length:2410       
+##  1st Qu.:12.00   Class :character   Class :character   Class :character  
+##  Median :12.00   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :13.59                                                           
+##  3rd Qu.:16.00                                                           
+##  Max.   :32.00                                                           
 ## </code></pre>
 <pre class="r"><code>summary(BB_ABV)</code></pre>
-<pre><code>##   Beer_Name            Beer_ID            ABV               IBU        
-##  Length:2346        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00  
-##  Class :character   1st Qu.: 827.2   1st Qu.:0.05000   1st Qu.: 21.00  
-##  Mode  :character   Median :1462.5   Median :0.05600   Median : 35.00  
-##                     Mean   :1438.8   Mean   :0.05978   Mean   : 42.74  
-##                     3rd Qu.:2077.8   3rd Qu.:0.06700   3rd Qu.: 64.00  
-##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00  
-##                                                        NA&#39;s   :943     
-##    Brewery_id       Style               Ounces      Brewery_Name      
-##  Min.   :  1.0   Length:2346        Min.   : 8.40   Length:2346       
-##  1st Qu.: 94.0   Class :character   1st Qu.:12.00   Class :character  
-##  Median :206.0   Mode  :character   Median :12.00   Mode  :character  
-##  Mean   :231.4                      Mean   :13.59                     
-##  3rd Qu.:366.0                      3rd Qu.:16.00                     
-##  Max.   :558.0                      Max.   :32.00                     
-##                                                                       
-##      City              State          
-##  Length:2346        Length:2346       
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
-##                                       
+<pre><code>##   Beer_Name            Beer_ID            ABV               IBU           Brewery_id       Style          
+##  Length:2346        Min.   :   1.0   Min.   :0.00100   Min.   :  4.00   Min.   :  1.0   Length:2346       
+##  Class :character   1st Qu.: 827.2   1st Qu.:0.05000   1st Qu.: 21.00   1st Qu.: 94.0   Class :character  
+##  Mode  :character   Median :1462.5   Median :0.05600   Median : 35.00   Median :206.0   Mode  :character  
+##                     Mean   :1438.8   Mean   :0.05978   Mean   : 42.74   Mean   :231.4                     
+##                     3rd Qu.:2077.8   3rd Qu.:0.06700   3rd Qu.: 64.00   3rd Qu.:366.0                     
+##                     Max.   :2692.0   Max.   :0.12800   Max.   :138.00   Max.   :558.0                     
+##                                                        NA&#39;s   :943                                        
+##      Ounces      Brewery_Name           City              State          
+##  Min.   : 8.40   Length:2346        Length:2346        Length:2346       
+##  1st Qu.:12.00   Class :character   Class :character   Class :character  
+##  Median :12.00   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :13.59                                                           
+##  3rd Qu.:16.00                                                           
+##  Max.   :32.00                                                           
 ## </code></pre>
 <pre class="r"><code>summary(BB_IBU)</code></pre>
-<pre><code>##   Beer_Name            Beer_ID          ABV               IBU        
-##  Length:1403        Min.   :   1   Min.   :0.02700   Min.   :  4.00  
-##  Class :character   1st Qu.: 771   1st Qu.:0.05000   1st Qu.: 21.00  
-##  Mode  :character   Median :1435   Median :0.05700   Median : 35.00  
-##                     Mean   :1414   Mean   :0.05992   Mean   : 42.74  
-##                     3rd Qu.:2068   3rd Qu.:0.06800   3rd Qu.: 64.00  
-##                     Max.   :2692   Max.   :0.12500   Max.   :138.00  
-##    Brewery_id       Style               Ounces      Brewery_Name      
-##  Min.   :  1.0   Length:1403        Min.   : 8.40   Length:1403       
-##  1st Qu.: 96.5   Class :character   1st Qu.:12.00   Class :character  
-##  Median :199.0   Mode  :character   Median :12.00   Mode  :character  
-##  Mean   :224.4                      Mean   :13.51                     
-##  3rd Qu.:351.0                      3rd Qu.:16.00                     
-##  Max.   :547.0                      Max.   :32.00                     
-##      City              State          
-##  Length:1403        Length:1403       
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
+<pre><code>##   Beer_Name            Beer_ID          ABV               IBU           Brewery_id       Style               Ounces     
+##  Length:1403        Min.   :   1   Min.   :0.02700   Min.   :  4.00   Min.   :  1.0   Length:1403        Min.   : 8.40  
+##  Class :character   1st Qu.: 771   1st Qu.:0.05000   1st Qu.: 21.00   1st Qu.: 96.5   Class :character   1st Qu.:12.00  
+##  Mode  :character   Median :1435   Median :0.05700   Median : 35.00   Median :199.0   Mode  :character   Median :12.00  
+##                     Mean   :1414   Mean   :0.05992   Mean   : 42.74   Mean   :224.4                      Mean   :13.51  
+##                     3rd Qu.:2068   3rd Qu.:0.06800   3rd Qu.: 64.00   3rd Qu.:351.0                      3rd Qu.:16.00  
+##                     Max.   :2692   Max.   :0.12500   Max.   :138.00   Max.   :547.0                      Max.   :32.00  
+##  Brewery_Name           City              State          
+##  Length:1403        Length:1403        Length:1403       
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
 ## </code></pre>
 <pre class="r"><code># Count the number of rows with ABV N/A values
 sum(is.na(BB$ABV))</code></pre>
@@ -693,43 +636,43 @@ ggarrange(g1,g2,g3,g4, ncol = 2, nrow = 2)</code></pre>
 MinABV = which.min(BB_ABV$ABV)
 BB_ABV[MinABV,]</code></pre>
 <pre><code>## # A tibble: 1 x 10
-##   Beer_Name Beer_ID   ABV   IBU Brewery_id Style Ounces Brewery_Name City  State
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-## 1 Scotty K~     606 0.001    NA        523 Low ~     16 Uncommon Br~ Sant~ CA</code></pre>
+##   Beer_Name   Beer_ID   ABV   IBU Brewery_id Style            Ounces Brewery_Name     City       State
+##   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;
+## 1 Scotty K NA     606 0.001    NA        523 Low Alcohol Beer     16 Uncommon Brewers Santa Cruz CA</code></pre>
 <pre class="r"><code># Using the BB_ABV data set we search for the highest ABV value recorded and 
 # check it&#39;s brewery/state 
 MaxABV = which.max(BB_ABV$ABV)
 BB_ABV[MaxABV,]</code></pre>
 <pre><code>## # A tibble: 1 x 10
-##   Beer_Name Beer_ID   ABV   IBU Brewery_id Style Ounces Brewery_Name City  State
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-## 1 Lee Hill~    2565 0.128    NA         52 Quad~   19.2 Upslope Bre~ Boul~ CO</code></pre>
+##   Beer_Name                            Beer_ID   ABV   IBU Brewery_id Style        Ounces Brewery_Name       City   State
+##   &lt;chr&gt;                                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;  &lt;chr&gt;
+## 1 Lee Hill Series Vol. 5 - Belgian St~    2565 0.128    NA         52 Quadrupel (~   19.2 Upslope Brewing C~ Bould~ CO</code></pre>
 <pre class="r"><code># Using the BB_ABV data set we search for the lowest IBU value recorded and 
 # check it&#39;s brewery/state
 MinIBU = which.min(BB_IBU$IBU)
 BB_IBU[MinIBU,]</code></pre>
 <pre><code>## # A tibble: 1 x 10
-##   Beer_Name Beer_ID   ABV   IBU Brewery_id Style Ounces Brewery_Name City  State
-##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;
-## 1 Summer S~    1350 0.056     4        172 Crea~     12 Anderson Va~ Boon~ CA</code></pre>
+##   Beer_Name       Beer_ID   ABV   IBU Brewery_id Style     Ounces Brewery_Name                    City      State
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;     &lt;chr&gt;
+## 1 Summer Solstice    1350 0.056     4        172 Cream Ale     12 Anderson Valley Brewing Company Boonville CA</code></pre>
 <pre class="r"><code># Using the original/unfiltered data set we search for the highest ABV value 
 # recorded and check it&#39;s brewery/state 
 MaxIBU = which.max(BB_IBU$IBU)
 BB_IBU</code></pre>
 <pre><code>## # A tibble: 1,403 x 10
-##    Beer_Name    Beer_ID   ABV   IBU Brewery_id Style   Ounces Brewery_Name City 
-##    &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;
-##  1 Bitter Bitch    1979 0.061    60        178 Americ~   12   18th Street~ Gary 
-##  2 Lower De Bo~    1036 0.099    92        369 Americ~    8.4 21st Amendm~ San ~
-##  3 Fireside Ch~    1024 0.079    45        369 Winter~   12   21st Amendm~ San ~
-##  4 Bitter Amer~     876 0.044    42        369 Americ~   12   21st Amendm~ San ~
-##  5 Hell or Hig~     802 0.049    17        369 Fruit ~   12   21st Amendm~ San ~
-##  6 Hell or Hig~     801 0.049    17        369 Fruit ~   12   21st Amendm~ San ~
-##  7 21st Amendm~     800 0.049    17        369 Fruit ~   12   21st Amendm~ San ~
-##  8 21st Amendm~     799 0.07     70        369 Americ~   12   21st Amendm~ San ~
-##  9 Brew Free! ~     797 0.07     70        369 Americ~   12   21st Amendm~ San ~
-## 10 Brew Free! ~     796 0.07     70        369 Americ~   12   21st Amendm~ San ~
-## # ... with 1,393 more rows, and 1 more variable: State &lt;chr&gt;</code></pre>
+##    Beer_Name                                   Beer_ID   ABV   IBU Brewery_id Style    Ounces Brewery_Name   City   State
+##    &lt;chr&gt;                                         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;
+##  1 Bitter Bitch                                   1979 0.061    60        178 America~   12   18th Street B~ Gary   IN   
+##  2 Lower De Boom                                  1036 0.099    92        369 America~    8.4 21st Amendmen~ San F~ CA   
+##  3 Fireside Chat                                  1024 0.079    45        369 Winter ~   12   21st Amendmen~ San F~ CA   
+##  4 Bitter American                                 876 0.044    42        369 America~   12   21st Amendmen~ San F~ CA   
+##  5 Hell or High Watermelon Wheat (2009)            802 0.049    17        369 Fruit /~   12   21st Amendmen~ San F~ CA   
+##  6 Hell or High Watermelon Wheat (2009)            801 0.049    17        369 Fruit /~   12   21st Amendmen~ San F~ CA   
+##  7 21st Amendment Watermelon Wheat Beer (2006)     800 0.049    17        369 Fruit /~   12   21st Amendmen~ San F~ CA   
+##  8 21st Amendment IPA (2006)                       799 0.07     70        369 America~   12   21st Amendmen~ San F~ CA   
+##  9 Brew Free! or Die IPA (2008)                    797 0.07     70        369 America~   12   21st Amendmen~ San F~ CA   
+## 10 Brew Free! or Die IPA (2009)                    796 0.07     70        369 America~   12   21st Amendmen~ San F~ CA   
+## # ... with 1,393 more rows</code></pre>
 <pre class="r"><code># Plot the top 5 states with the highest ABV (1 per state)
 g5 = BB_ABV %&gt;% group_by(State) %&gt;% 
   summarise(Max_ABV = max(ABV),Beer_Name = Beer_Name[1]) %&gt;%
@@ -951,7 +894,7 @@ which.max(MeanAcc)</code></pre>
 <pre><code>## [1] 6</code></pre>
 <pre class="r"><code># Output the Accuracy of the knn classification using the best k-value
 max(MeanAcc)</code></pre>
-<pre><code>## [1] 0.8538947</code></pre>
+<pre><code>## [1] 0.8566316</code></pre>
 <pre class="r"><code># create a final confusion matrix using the best k-value
 classifications = knn(BB_Type_train[,c(3,4)],BB_Type_test[,c(3,4)],
                       BB_Type_train$Type, prob = TRUE, k = which.max(MeanAcc))
@@ -960,28 +903,28 @@ confusionMatrix(table(classifications,BB_Type_test$Type))</code></pre>
 ## 
 ##                
 ## classifications Ale IPA
-##             Ale  93  19
-##             IPA   9  69
-##                                           
-##                Accuracy : 0.8526          
-##                  95% CI : (0.7941, 0.8998)
-##     No Information Rate : 0.5368          
-##     P-Value [Acc &gt; NIR] : &lt; 2e-16         
-##                                           
-##                   Kappa : 0.7013          
-##                                           
-##  Mcnemar&#39;s Test P-Value : 0.08897         
-##                                           
-##             Sensitivity : 0.9118          
-##             Specificity : 0.7841          
-##          Pos Pred Value : 0.8304          
-##          Neg Pred Value : 0.8846          
-##              Prevalence : 0.5368          
-##          Detection Rate : 0.4895          
-##    Detection Prevalence : 0.5895          
-##       Balanced Accuracy : 0.8479          
-##                                           
-##        &#39;Positive&#39; Class : Ale             
+##             Ale 105  13
+##             IPA  13  59
+##                                          
+##                Accuracy : 0.8632         
+##                  95% CI : (0.806, 0.9086)
+##     No Information Rate : 0.6211         
+##     P-Value [Acc &gt; NIR] : 1.28e-13       
+##                                          
+##                   Kappa : 0.7093         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 1              
+##                                          
+##             Sensitivity : 0.8898         
+##             Specificity : 0.8194         
+##          Pos Pred Value : 0.8898         
+##          Neg Pred Value : 0.8194         
+##              Prevalence : 0.6211         
+##          Detection Rate : 0.5526         
+##    Detection Prevalence : 0.6211         
+##       Balanced Accuracy : 0.8546         
+##                                          
+##        &#39;Positive&#39; Class : Ale            
 ## </code></pre>
 <pre class="r"><code>############################### PART 8 CONCLUSION ##############################
 #
