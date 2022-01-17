@@ -22,3 +22,7 @@ output: html_document
 ## What am I interested in? 
 
 ### I love learning about history, especially the 20th century. I also enjoy rock climbing. 
+
+The other tabs that you'll find on this page is other work/analyses that I have completed, be sure to look around!
+
+
