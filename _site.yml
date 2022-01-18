@@ -6,3 +6,5 @@ navbar:
         href: index.html
       - text: "Project1"
         href: Project1.html
+      - text: "Link to shiny app for Beer.csv"
+        href: README.md
