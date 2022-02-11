@@ -1,0 +1,13 @@
+name: InteractiveBeers
+title: InteractiveBeers
+username:
+account: raagpatel1
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5457397
+bundleId: 5479031
+url: https://raagpatel1.shinyapps.io/InteractiveBeers/
+when: 1642465552.06505
+lastSyncTime: 1642465552.06505
+asMultiple: FALSE
+asStatic: FALSE
