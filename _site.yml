@@ -8,3 +8,5 @@ navbar:
         href: Project1.html
       - text: "Link to shiny app for Beer.csv"
         href: README.md
+      - text: Project2.html
+        href: Project2_RCode.html
