@@ -6,14 +6,15 @@ library(dplyr)
 library(ggplot2)
 library(tidyverse)
 
+rsconnect::setAccountInfo(name='raagpatel1',
+                          token='80ADA9933EE7D27125672588AF37FA1D',
+                          secret='oOKfSU5tjbnTak98vpaVmmzkIVValYCWKUbHPoO7')
 render_site()
 
 
 
 
-rsconnect::setAccountInfo(name='raagpatel1',
-                          token='80ADA9933EE7D27125672588AF37FA1D',
-                          secret='oOKfSU5tjbnTak98vpaVmmzkIVValYCWKUbHPoO7')
+
 library(readr)
 x <- read_csv("Beers.csv")
 

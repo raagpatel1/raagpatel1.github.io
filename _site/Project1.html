@@ -249,10 +249,7 @@ $(document).ready(function () {
   <a href="Project1.html">Project1</a>
 </li>
 <li>
-  <a href="README.md">Link to shiny app for Beer.csv</a>
-</li>
-<li>
-  <a href="Project2_RCode.html">Project2.html</a>
+  <a href="Project2_RCode.html">Project2</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -277,42 +274,16 @@ $(document).ready(function () {
 library(dplyr)
 library(readr)
 library(ggplot2)
-library(plotly)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre class="r"><code>library(GGally)</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
-##   method from   
-##   +.gg   ggplot2</code></pre>
-<pre class="r"><code>library(cowplot)
-library(ggpubr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;ggpubr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
-## 
-##     get_legend</code></pre>
-<pre class="r"><code>library(devtools)</code></pre>
-<pre><code>## Loading required package: usethis</code></pre>
-<pre class="r"><code>library(ggcorrplot)
+library(plotly)
+library(GGally)
+library(cowplot)
+library(ggpubr)
+library(devtools)
+library(ggcorrplot)
 library(ggfittext)
 library(class)
-library(caret)</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre><code>## 
-## Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     lift</code></pre>
-<pre class="r"><code>library(e1071)
+library(caret)
+library(e1071)
 library(usmap)
 
 
@@ -923,10 +894,10 @@ plot(seq(1,numks,1),MeanAcc, type = &quot;l&quot;)</code></pre>
 <p><img src="Project1_files/figure-html/unnamed-chunk-1-7.png" width="672" /></p>
 <pre class="r"><code># Output the best k-value from the loop
 which.max(MeanAcc)</code></pre>
-<pre><code>## [1] 6</code></pre>
+<pre><code>## [1] 5</code></pre>
 <pre class="r"><code># Output the Accuracy of the knn classification using the best k-value
 max(MeanAcc)</code></pre>
-<pre><code>## [1] 0.8521579</code></pre>
+<pre><code>## [1] 0.8586842</code></pre>
 <pre class="r"><code># create a final confusion matrix using the best k-value
 classifications = knn(BB_Type_train[,c(3,4)],BB_Type_test[,c(3,4)],
                       BB_Type_train$Type, prob = TRUE, k = which.max(MeanAcc))
@@ -935,26 +906,26 @@ confusionMatrix(table(classifications,BB_Type_test$Type))</code></pre>
 ## 
 ##                
 ## classifications Ale IPA
-##             Ale  96  16
-##             IPA  15  63
+##             Ale 102  11
+##             IPA  13  64
 ##                                           
-##                Accuracy : 0.8368          
-##                  95% CI : (0.7765, 0.8864)
-##     No Information Rate : 0.5842          
-##     P-Value [Acc &gt; NIR] : 6.411e-14       
+##                Accuracy : 0.8737          
+##                  95% CI : (0.8179, 0.9174)
+##     No Information Rate : 0.6053          
+##     P-Value [Acc &gt; NIR] : 2.88e-16        
 ##                                           
-##                   Kappa : 0.6635          
+##                   Kappa : 0.7369          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 1               
+##  Mcnemar&#39;s Test P-Value : 0.8383          
 ##                                           
-##             Sensitivity : 0.8649          
-##             Specificity : 0.7975          
-##          Pos Pred Value : 0.8571          
-##          Neg Pred Value : 0.8077          
-##              Prevalence : 0.5842          
-##          Detection Rate : 0.5053          
-##    Detection Prevalence : 0.5895          
-##       Balanced Accuracy : 0.8312          
+##             Sensitivity : 0.8870          
+##             Specificity : 0.8533          
+##          Pos Pred Value : 0.9027          
+##          Neg Pred Value : 0.8312          
+##              Prevalence : 0.6053          
+##          Detection Rate : 0.5368          
+##    Detection Prevalence : 0.5947          
+##       Balanced Accuracy : 0.8701          
 ##                                           
 ##        &#39;Positive&#39; Class : Ale             
 ## </code></pre>
