@@ -1,5 +1,15 @@
-# ONE HASHTAG
+# About Me
 
-## TWO HASHTAG
+## Education
 
-### THREE HASHTAG
+### BS in Mathematics, UTD
+#### Aug 2021
+
+### MS in Data Science, SMU
+#### Spring 2024
+
+## Projects
+
+### I CAN DO THIS LATER I THINK 
+
+## MAYBE MORE ? ? ? ? ? ? 
