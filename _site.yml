@@ -1,0 +1,8 @@
+name: "Raag Patel Portfolio"
+
+navbar:
+  title: "Portfolio"
+  left:
+    - text: "Home"
+      href: index.md
+    - text: "Projects"
