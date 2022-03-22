@@ -10,6 +10,6 @@
 
 ## Projects
 
-### I CAN DO THIS LATER I THINK 
+### WIP
 
 ## LINKS
