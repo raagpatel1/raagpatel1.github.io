@@ -13,3 +13,10 @@
 ### WIP
 
 ## LINKS
+
+
+left: 
+  - text: "Project 1"
+    href: "Project1_Final_RCode_FullAnalysis"
+  - text: "Project 2"
+    href: "Project2_RCode"
